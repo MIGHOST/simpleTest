@@ -1,12 +1,12 @@
-import redis from 'redis';
 import app from './app/app';
-import { config } from './config';
+import { config } from './app/config';
 
-const PORT:number = Number(config.port);
+const PORT: number = Number(config.port);
 
-app.listen(PORT, async () => {
+export const server = app.listen(PORT, async () => {
     console.log(`Server listening on port: ${PORT}`);
   })
   .on("error", (e) => {
     console.log(e);
   });
+
